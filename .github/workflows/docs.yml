@@ -21,14 +21,20 @@ jobs:
           persist-credentials: false
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: mdbook@0.5.4
+      - run: mdbook build docs
       - run: cargo doc --no-deps --all-features --locked
         env:
           RUSTDOCFLAGS: -D warnings
-      # Root redirect to the crate docs.
-      - run: echo '<meta http-equiv="refresh" content="0; url=erlc/index.html">' > target/doc/index.html
+      - name: Add API reference under /api
+        run: |
+          cp -r target/doc target/site/api
+          echo '<meta http-equiv="refresh" content="0; url=erlc/index.html">' > target/site/api/index.html
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: target/doc
+          path: target/site
 
   deploy:
     needs: build

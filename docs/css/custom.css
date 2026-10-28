@@ -1,0 +1,63 @@
+/* Wider reading column. */
+:root {
+    --content-max-width: 860px;
+}
+
+/* Landing page header. */
+.hero {
+    padding: 2.5rem 0 1.5rem;
+    border-bottom: 1px solid var(--table-border-color);
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    margin: 0 0 0.4rem;
+}
+
+.hero .tagline {
+    font-size: 1.2rem;
+    color: var(--sidebar-fg);
+    opacity: 0.85;
+    margin: 0 0 1.5rem;
+}
+
+.hero .buttons a {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    margin: 0 0.5rem 0.5rem 0;
+    border-radius: 6px;
+    border: 1px solid var(--links);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hero .buttons a.primary {
+    background: var(--links);
+    color: var(--bg);
+}
+
+/* Feature grid on the landing page. */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.features div {
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    background: var(--table-alternate-bg);
+}
+
+.features strong {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* Full-width tables. */
+table {
+    width: 100%;
+}

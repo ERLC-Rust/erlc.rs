@@ -139,8 +139,8 @@ ERLC_GLOBAL_KEY=your-global-key ERLC_SERVER_KEYS=key-one,key-two cargo run --exa
 
 ## Documentation
 
-- [Guides](docs/README.md): getting started, server data, commands, errors, rate limits, public apps, testing and troubleshooting
-- [API reference](https://erlc-rust.github.io/erlc.rs/), or `cargo doc --open` locally
+- [Guides](https://erlc-rust.github.io/erlc.rs/) ([source](docs/README.md)): getting started, server data, commands, errors, rate limits, public apps, testing and troubleshooting
+- [API reference](https://erlc-rust.github.io/erlc.rs/api/erlc/), or `cargo doc --open` locally
 
 ## Minimum supported Rust version
 
