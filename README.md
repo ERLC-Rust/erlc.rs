@@ -55,18 +55,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ### Several datasets in one request
 
 ```rust,no_run
-# async fn run(client: erlc::Client) -> erlc::Result<()> {
 use erlc::ServerQuery;
 
-let snapshot = client
-    .server_with(ServerQuery::new().players().kill_logs().vehicles())
-    .await?;
+async fn kills(client: &erlc::Client) -> erlc::Result<()> {
+    let snapshot = client
+        .server_with(ServerQuery::new().players().kill_logs().vehicles())
+        .await?;
 
-for kill in snapshot.kill_logs.unwrap_or_default() {
-    println!("{} killed {}", kill.killer.name(), kill.killed.name());
+    for kill in snapshot.kill_logs.unwrap_or_default() {
+        println!("{} killed {}", kill.killer.name(), kill.killed.name());
+    }
+    Ok(())
 }
-# Ok(())
-# }
 ```
 
 Shortcuts fetch one dataset each: `players`, `staff`, `join_logs`, `queue`, `kill_logs`,
@@ -75,11 +75,11 @@ Shortcuts fetch one dataset each: `players`, `staff`, `join_logs`, `queue`, `kil
 ### Commands
 
 ```rust,no_run
-# async fn run(client: erlc::Client) -> erlc::Result<()> {
-let response = client.run_command(":h Server restart in 5 minutes").await?;
-println!("{}", response.message);
-# Ok(())
-# }
+async fn announce(client: &erlc::Client) -> erlc::Result<()> {
+    let response = client.run_command(":h Server restart in 5 minutes").await?;
+    println!("{}", response.message);
+    Ok(())
+}
 ```
 
 Commands are sent once and never retried. If a command times out, it may still have run.
@@ -88,17 +88,17 @@ The ER:LC policy forbids using `:pm` as a replacement for in-game chat.
 ### Errors
 
 ```rust,no_run
-# async fn run(client: erlc::Client) {
 use erlc::{Error, ErrorCode};
 
-match client.run_command(":h hi").await {
-    Ok(_) => {}
-    Err(Error::Api(e)) if e.is_server_offline() => eprintln!("server has no players"),
-    Err(Error::Api(e)) if e.code() == Some(ErrorCode::RestrictedCommand) => eprintln!("restricted"),
-    Err(Error::RateLimited(e)) => eprintln!("retry after {:?}", e.retry_after()),
-    Err(e) => eprintln!("{e}"),
+async fn hint(client: &erlc::Client) {
+    match client.run_command(":h hi").await {
+        Ok(_) => {}
+        Err(Error::Api(e)) if e.is_server_offline() => eprintln!("server has no players"),
+        Err(Error::Api(e)) if e.code() == Some(ErrorCode::RestrictedCommand) => eprintln!("restricted"),
+        Err(Error::RateLimited(e)) => eprintln!("retry after {:?}", e.retry_after()),
+        Err(e) => eprintln!("{e}"),
+    }
 }
-# }
 ```
 
 ### Rate limits
@@ -114,15 +114,15 @@ Apps that serve more than one server must use a
 [global API key](https://apidocs.erlc.gg/creating-public-applications):
 
 ```rust,no_run
-# fn run() -> erlc::Result<()> {
-let base = erlc::Client::builder()
-    .server_key("first-server-key")
-    .global_key("your-global-key")
-    .user_agent("my-bot/1.0")
-    .build()?;
-let other = base.with_server_key("second-server-key")?;
-# Ok(())
-# }
+fn clients() -> erlc::Result<(erlc::Client, erlc::Client)> {
+    let base = erlc::Client::builder()
+        .server_key("first-server-key")
+        .global_key("your-global-key")
+        .user_agent("my-bot/1.0")
+        .build()?;
+    let other = base.with_server_key("second-server-key")?;
+    Ok((base, other))
+}
 ```
 
 Clients created with `with_server_key` share the connection pool and rate-limit state.
@@ -139,9 +139,8 @@ ERLC_GLOBAL_KEY=your-global-key ERLC_SERVER_KEYS=key-one,key-two cargo run --exa
 
 ## Documentation
 
-```sh
-cargo doc --open
-```
+- [Guides](docs/README.md): getting started, server data, commands, errors, rate limits, public apps, testing and troubleshooting
+- [API reference](https://erlc-rust.github.io/erlc.rs/), or `cargo doc --open` locally
 
 ## Minimum supported Rust version
 

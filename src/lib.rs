@@ -1,5 +1,7 @@
 //! Async, type-safe client for the [ER:LC Private Server API](https://apidocs.erlc.gg/).
 //!
+//! Step-by-step guides live in the [`docs/` folder](https://github.com/ERLC-Rust/erlc.rs/tree/main/docs).
+//!
 //! # Quick start
 //!
 //! ```no_run
@@ -59,7 +61,25 @@ pub use rate_limit::RateLimitInfo;
 /// [`ClientBuilder::http_client`]. Its major version is part of this crate's public API.
 pub use reqwest;
 
-/// Compiles the README code samples as doctests.
+/// Compiles the README and guide code samples as doctests.
 #[cfg(doctest)]
-#[doc = include_str!("../README.md")]
-struct ReadmeDoctests;
+mod doc_samples {
+    #[doc = include_str!("../README.md")]
+    struct Readme;
+    #[doc = include_str!("../docs/getting-started.md")]
+    struct GettingStarted;
+    #[doc = include_str!("../docs/client.md")]
+    struct ClientGuide;
+    #[doc = include_str!("../docs/server-data.md")]
+    struct ServerData;
+    #[doc = include_str!("../docs/commands.md")]
+    struct Commands;
+    #[doc = include_str!("../docs/errors.md")]
+    struct Errors;
+    #[doc = include_str!("../docs/rate-limits.md")]
+    struct RateLimits;
+    #[doc = include_str!("../docs/public-apps.md")]
+    struct PublicApps;
+    #[doc = include_str!("../docs/testing.md")]
+    struct Testing;
+}

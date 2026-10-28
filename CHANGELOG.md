@@ -18,3 +18,4 @@ All notable changes to this project are documented here. The format follows
 - Client-side rate-limit tracking that blocks requests locally after a 429.
 - `with_server_key` for public applications serving many servers.
 - `rustls` (default) and `native-tls` features.
+- Guides in `docs/` and API reference published to GitHub Pages.
