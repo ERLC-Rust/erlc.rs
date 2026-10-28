@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/ERLC-Rust/erlc.rs/security/advisories/new
+    about: Report security issues privately.
+  - name: ER:LC API documentation
+    url: https://apidocs.erlc.gg/
+    about: Questions about the API itself.

@@ -1,0 +1,90 @@
+{
+  "Name": "API Test",
+  "OwnerId": 1,
+  "CoOwnerIds": [2],
+  "CurrentPlayers": 2,
+  "MaxPlayers": 40,
+  "JoinKey": "APIServer",
+  "AccVerifiedReq": "Disabled",
+  "TeamBalance": false,
+  "Players": [
+    {
+      "Team": "Sheriff",
+      "Player": "PlayerName:100",
+      "Callsign": "5D-550",
+      "Location": {
+        "LocationX": 1084.965,
+        "LocationZ": 2302.28,
+        "PostalCode": "218",
+        "StreetName": "Park Street",
+        "BuildingNumber": "2083"
+      },
+      "Permission": "Server Moderator",
+      "WantedStars": 0
+    },
+    {
+      "Team": "Civilian",
+      "Player": "OtherPlayer:101",
+      "Callsign": null,
+      "Location": {
+        "LocationX": -420,
+        "LocationZ": 275,
+        "PostalCode": "403",
+        "StreetName": "Independence Parkway",
+        "BuildingNumber": ""
+      },
+      "Permission": "Normal",
+      "WantedStars": 3
+    }
+  ],
+  "Staff": {
+    "Admins": { "77573259": "AdminOne", "54249787": "AdminTwo" },
+    "Mods": { "2": "JohnDoe", "3": "JaneDoe" },
+    "Helpers": { "168691872": "HelperOne" }
+  },
+  "JoinLogs": [
+    { "Join": true, "Timestamp": 1704614400, "Player": "PlayerName:100" },
+    { "Join": false, "Timestamp": 1704614500, "Player": "OtherPlayer:101" }
+  ],
+  "Queue": [102, 103],
+  "KillLogs": [
+    { "Killed": "OtherPlayer:101", "Timestamp": 1704614400, "Killer": "PlayerName:100" }
+  ],
+  "CommandLogs": [
+    { "Player": "PlayerName:100", "Timestamp": 1704614400, "Command": ":h" }
+  ],
+  "ModCalls": [
+    { "Caller": "OtherPlayer:101", "Moderator": "PlayerName:100", "Timestamp": 1704614400 },
+    { "Caller": "OtherPlayer:101", "Timestamp": 1704614600 }
+  ],
+  "EmergencyCalls": [
+    {
+      "Team": "Police",
+      "Caller": 168691872,
+      "Players": [],
+      "Position": [-654.6, 666.5],
+      "StartedAt": 1774216563,
+      "CallNumber": 400,
+      "Description": "stg",
+      "PositionDescriptor": "sdfsdfsdf"
+    }
+  ],
+  "Vehicles": [
+    {
+      "Name": "Redline Fire Engine",
+      "Owner": "PlayerName",
+      "Plate": "ABC-123",
+      "Texture": "Livery Name",
+      "ColorHex": "#ff4444",
+      "ColorName": "Super Red"
+    },
+    {
+      "Name": "2019 Falcon Interceptor Utility",
+      "Owner": "OtherPlayer",
+      "Plate": "XYZ-789",
+      "Texture": null,
+      "ColorHex": "#000000",
+      "ColorName": "Black"
+    }
+  ]
+}

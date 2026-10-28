@@ -1,0 +1,39 @@
+name: Bug report
+description: Something in erlc.rs does not work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "**Never paste a server key or global API key.** Redact player names and IDs from responses."
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you did, what you expected and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: code
+    attributes:
+      label: Minimal code
+      render: rust
+  - type: textarea
+    id: error
+    attributes:
+      label: Error output
+      description: The `Display` and `Debug` output of the error, if any.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: erlc.rs version or commit
+    validations:
+      required: true
+  - type: input
+    id: rust
+    attributes:
+      label: Rust version (`rustc --version`)
+  - type: input
+    id: os
+    attributes:
+      label: Operating system

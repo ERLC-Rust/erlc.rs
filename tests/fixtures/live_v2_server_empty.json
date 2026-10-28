@@ -1,0 +1,64 @@
+{
+  "Name": "Redacted Server",
+  "OwnerId": 1,
+  "CoOwnerIds": [],
+  "CurrentPlayers": 0,
+  "MaxPlayers": 15,
+  "JoinKey": "redacted",
+  "AccVerifiedReq": "Disabled",
+  "TeamBalance": false,
+  "Players": [],
+  "Staff": {
+    "Admins": {
+      "100": "Admin1",
+      "101": "Admin2",
+      "102": "Admin3",
+      "103": "Admin4",
+      "104": "Admin5",
+      "105": "Admin6",
+      "106": "Admin7",
+      "107": "Admin8"
+    },
+    "Mods": {
+      "108": "Mod1"
+    },
+    "Helpers": {
+      "109": "Helper1",
+      "110": "Helper2"
+    }
+  },
+  "EmergencyCalls": [],
+  "JoinLogs": [
+    {
+      "Join": true,
+      "Player": "Player1:1001",
+      "Timestamp": 1700000000
+    },
+    {
+      "Join": true,
+      "Player": "Player2:1002",
+      "Timestamp": 1700000060
+    },
+    {
+      "Join": false,
+      "Player": "Player2:1002",
+      "Timestamp": 1700000120
+    },
+    {
+      "Join": false,
+      "Player": "Player1:1001",
+      "Timestamp": 1700000180
+    }
+  ],
+  "Queue": [],
+  "KillLogs": [],
+  "CommandLogs": [
+    {
+      "Player": "Player3:1003",
+      "Command": ":h redacted",
+      "Timestamp": 1700000240
+    }
+  ],
+  "ModCalls": [],
+  "Vehicles": []
+}

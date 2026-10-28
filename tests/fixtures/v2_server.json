@@ -1,0 +1,10 @@
+{
+  "Name": "API Test",
+  "OwnerId": 1,
+  "CoOwnerIds": [2, 3],
+  "CurrentPlayers": 12,
+  "MaxPlayers": 40,
+  "JoinKey": "APIServer",
+  "AccVerifiedReq": "Disabled",
+  "TeamBalance": true
+}

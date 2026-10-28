@@ -1,0 +1,16 @@
+/target
+
+# Credentials: never commit server keys or global API keys
+.env
+.env.*
+!.env.example
+
+# Unredacted live API captures (redact before moving into tests/fixtures)
+/tests/fixtures/raw/
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

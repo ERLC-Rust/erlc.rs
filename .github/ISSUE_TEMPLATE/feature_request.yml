@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest a new feature or API coverage
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you want to do?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API
+      render: rust
+  - type: input
+    id: docs
+    attributes:
+      label: ER:LC API documentation link
+      description: Required for new endpoints or fields, so nothing is guessed.
